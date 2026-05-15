@@ -50,12 +50,24 @@ PowerShell script to install and configure the Starry Night theme for Spicetify 
 
 ---
 
+### 🏭 AnticBuddy — Product Intelligence Platform
+> **Directory:** `product-manager/`
+
+An enterprise-grade product management & AI recognition system. 13-page full-stack application with admin dashboard, worker portal, AI camera scanner, product CRUD, analytics, and activity logs.
+
+- **Tech:** Next.js 16, TypeScript, Tailwind CSS, Framer Motion, Zustand
+- **Features:** AI camera scanner, product catalog, admin/worker role-based access, animated analytics, dark/light theme, glassmorphic UI
+- **Built for:** Tushar Makwana (AnticBuddy)
+
+---
+
 ## 🛠️ Setup
 
 Each project can be run independently:
 
 - **WanderVista:** Open `index.html` in a browser
 - **AI/ML Tracker:** `cd aiml-tracker && npm install && npm run dev`
+- **AnticBuddy Product Manager:** `cd product-manager && npm install && npm run dev`
 - **Chrome Extensions:** Load unpacked from `chrome://extensions`
 
 ## 👤 Author
