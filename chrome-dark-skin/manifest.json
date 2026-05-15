@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Ambient Dark Skin",
+  "description": "Sleek dark Chrome skin with deep purple-black tones.",
+  "theme": {
+    "images": {
+      "theme_frame": "images/frame.png"
+    },
+    "colors": {
+      "frame": [10, 10, 18],
+      "frame_inactive": [8, 8, 14],
+      "toolbar": [16, 14, 26],
+      "tab_text": [230, 226, 240],
+      "tab_background_text": [120, 110, 140],
+      "bookmark_text": [180, 170, 200],
+      "ntp_background": [10, 10, 15],
+      "ntp_text": [230, 226, 240],
+      "omnibox_background": [20, 18, 32],
+      "omnibox_text": [220, 216, 232],
+      "toolbar_button_icon": [170, 160, 190],
+      "toolbar_text": [200, 196, 216]
+    },
+    "tints": {
+      "buttons": [0.75, 0.3, 0.7]
+    },
+    "properties": {
+      "ntp_logo_alternate": 1
+    }
+  }
+}

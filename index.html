@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderVista &mdash; Explore The World In 3D</title>
+    <meta name="description" content="WanderVista &mdash; Premium 3D travel experiences. Explore destinations on an interactive globe, read reviews, and book dream trips instantly.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Preloader removed for reliability -->
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar" class="glass-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fa-solid fa-earth-americas"></i>
+                <span>Wander<span class="accent">Vista</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#destinations" class="nav-link">Destinations</a></li>
+                <li><a href="#packages" class="nav-link">Packages</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="bookNowNav" class="btn-primary btn-glow">Book Now</button>
+                <button id="menuToggle" class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div id="mobileMenu" class="mobile-menu glass-panel">
+        <ul class="mobile-nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero-section">
+        <div id="globe-container" class="globe-container"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge glass-badge">
+                <i class="fa-solid fa-compass"></i>
+                <span>Explore 12+ Dream Destinations</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Discover The</span>
+                <span class="title-line gradient-text">World In 3D</span>
+            </h1>
+            <p class="hero-subtitle">Click on any destination on the globe to explore, read reviews, and book your dream trip instantly.</p>
+            <div class="hero-cta">
+                <button id="exploreBtn" class="btn-primary btn-glow">
+                    <i class="fa-solid fa-globe"></i> Explore Globe
+                </button>
+                <button id="watchBtn" class="btn-glass">
+                    <i class="fa-solid fa-play"></i> Watch Video
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item glass-card-mini">
+                    <span class="stat-number" data-count="50">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Destinations</span>
+                </div>
+                <div class="stat-item glass-card-mini">
+                    <span class="stat-number" data-count="10000">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Happy Travelers</span>
+                </div>
+                <div class="stat-item glass-card-mini">
+                    <span class="stat-number" data-count="4.9" data-decimal="true">0</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Globe Destination Info Panel -->
+        <div id="destinationPanel" class="dest-panel glass-panel">
+            <button id="closePanelBtn" class="panel-close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="panel-gallery">
+                <img id="panelMainImg" class="panel-main-img" src="" alt="">
+                <div id="panelThumbs" class="panel-thumbs"></div>
+            </div>
+            <div class="panel-info">
+                <div class="panel-header">
+                    <h2 id="panelName" class="panel-name"></h2>
+                    <div class="panel-rating">
+                        <div id="panelStars" class="stars"></div>
+                        <span id="panelRating"></span>
+                    </div>
+                </div>
+                <p id="panelDesc" class="panel-desc"></p>
+                <div id="panelDetails" class="panel-details"></div>
+                <div id="panelReviewsSection" class="panel-reviews">
+                    <h3><i class="fa-solid fa-comment-dots"></i> Traveler Reviews</h3>
+                    <div id="panelReviewsList"></div>
+                </div>
+                <div class="panel-price-row">
+                    <div>
+                        <span class="panel-price-label">Starting from</span>
+                        <span id="panelPrice" class="panel-price"></span>
+                    </div>
+                    <button class="btn-primary btn-glow panel-book-btn" onclick="openBooking()">
+                        <i class="fa-solid fa-paper-plane"></i> Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DESTINATIONS SECTION ===== -->
+    <section id="destinations" class="section destinations-section">
+        <div class="section-header">
+            <span class="section-tag glass-badge"><i class="fa-solid fa-location-dot"></i> Top Destinations</span>
+            <h2 class="section-title">Explore <span class="gradient-text">Dream Places</span></h2>
+            <p class="section-subtitle">Handpicked destinations with detailed guides, reviews, and instant booking</p>
+        </div>
+        <div class="destinations-grid" id="destinationsGrid">
+            <!-- Cards injected by JS -->
+        </div>
+    </section>
+
+    <!-- ===== PACKAGES SECTION ===== -->
+    <section id="packages" class="section packages-section">
+        <div class="section-header">
+            <span class="section-tag glass-badge"><i class="fa-solid fa-suitcase"></i> Travel Packages</span>
+            <h2 class="section-title">Choose Your <span class="gradient-text">Adventure</span></h2>
+            <p class="section-subtitle">Budget-friendly to ultra-luxury &mdash; every package includes hotel, transport &amp; activities</p>
+        </div>
+        <div class="packages-grid">
+
+            <div class="package-card glass-card featured" data-package="premium" data-aos="fade-up" data-aos-delay="100">
+                <div class="package-badge featured-badge">Most Popular</div>
+                <div class="package-icon"><i class="fa-solid fa-gem"></i></div>
+                <h3>Premium</h3>
+                <div class="package-price"><span class="currency">$</span><span class="amount">999</span><span class="period">/person</span></div>
+                <ul class="package-features">
+                    <li><i class="fa-solid fa-check"></i> 5-Star Resort</li>
+                    <li><i class="fa-solid fa-check"></i> Business Class Flight</li>
+                    <li><i class="fa-solid fa-check"></i> Private Tour Guide</li>
+                    <li><i class="fa-solid fa-check"></i> All Meals Included</li>
+                    <li><i class="fa-solid fa-check"></i> Luxury Car Transfer</li>
+                    <li><i class="fa-solid fa-check"></i> Spa &amp; Wellness</li>
+                </ul>
+                <button class="btn-glass package-detail-btn" data-package="premium">View Details</button>
+                <button class="btn-primary btn-glow" onclick="openBooking()">Book Now</button>
+            </div>
+
+            <div class="package-card glass-card" data-package="adventure" data-aos="fade-up" data-aos-delay="300">
+                <div class="package-badge adventure-badge">Thrill Seeker</div>
+                <div class="package-icon"><i class="fa-solid fa-person-hiking"></i></div>
+                <h3>Adventurer</h3>
+                <div class="package-price"><span class="currency">$</span><span class="amount">699</span><span class="period">/person</span></div>
+                <ul class="package-features">
+                    <li><i class="fa-solid fa-check"></i> Adventure Lodge Stay</li>
+                    <li><i class="fa-solid fa-check"></i> Direct Flight</li>
+                    <li><i class="fa-solid fa-check"></i> Guided Hiking Tours</li>
+                    <li><i class="fa-solid fa-check"></i> Water Sports Included</li>
+                    <li><i class="fa-solid fa-check"></i> Camping Experience</li>
+                    <li><i class="fa-solid fa-check"></i> Adventure Gear Provided</li>
+                </ul>
+                <button class="btn-glass package-detail-btn" data-package="adventure">View Details</button>
+                <button class="btn-primary btn-glow" onclick="openBooking()">Book Now</button>
+            </div>
+            <div class="package-card glass-card" data-package="honeymoon" data-aos="fade-up" data-aos-delay="400">
+                <div class="package-badge honeymoon-badge"><i class="fa-solid fa-heart"></i> Romance</div>
+                <div class="package-icon"><i class="fa-solid fa-heart"></i></div>
+                <h3>Honeymoon</h3>
+                <div class="package-price"><span class="currency">$</span><span class="amount">1,499</span><span class="period">/couple</span></div>
+                <ul class="package-features">
+                    <li><i class="fa-solid fa-check"></i> Couple's Suite</li>
+                    <li><i class="fa-solid fa-check"></i> Business Class Flight</li>
+                    <li><i class="fa-solid fa-check"></i> Romantic Dinner Setup</li>
+                    <li><i class="fa-solid fa-check"></i> Couple's Spa Package</li>
+                    <li><i class="fa-solid fa-check"></i> Sunset Cruise</li>
+                    <li><i class="fa-solid fa-check"></i> Photography Session</li>
+                </ul>
+                <button class="btn-glass package-detail-btn" data-package="honeymoon">View Details</button>
+                <button class="btn-primary btn-glow" onclick="openBooking()">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PACKAGE DETAIL MODAL ===== -->
+    <div id="packageModal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="modal-close" onclick="closePackageModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div id="packageModalBody" class="package-modal-body">
+                <!-- Dynamic content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== REVIEWS SECTION ===== -->
+    <section id="reviews" class="section reviews-section">
+        <div class="section-header">
+            <span class="section-tag glass-badge"><i class="fa-solid fa-star"></i> Reviews</span>
+            <h2 class="section-title">What Travelers <span class="gradient-text">Say</span></h2>
+            <p class="section-subtitle">Real reviews from real adventurers who explored the world with us</p>
+        </div>
+        <div class="reviews-carousel" id="reviewsCarousel">
+            <!-- Review cards injected by JS -->
+        </div>
+        <div class="reviews-dots" id="reviewsDots"></div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="section contact-section">
+        <div class="section-header">
+            <span class="section-tag glass-badge"><i class="fa-solid fa-envelope"></i> Get In Touch</span>
+            <h2 class="section-title">Contact <span class="gradient-text">Us</span></h2>
+            <p class="section-subtitle">Have questions? Reach out to our travel experts for personalized assistance</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info glass-card">
+                <h3>Owner &amp; Travel Expert</h3>
+                <div class="owner-profile">
+                    <div class="owner-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h4>Daksh Makwana</h4>
+                        <p>Founder &amp; CEO, WanderVista<br><small style="color:var(--olive)">Co-founded by Dharmik Padhara</small></p>
+                    </div>
+                </div>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon glass-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <span class="contact-label">Phone</span>
+                            <a href="tel:+917359344083">+91 73593 44083</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon glass-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <span class="contact-label">WhatsApp</span>
+                            <a href="https://wa.me/917359344083" target="_blank">Chat with us</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon glass-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:hello@wandervista.com">hello@wandervista.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon glass-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <span class="contact-label">Office</span>
+                            <p>Nana Bazar, Vallabh Vidhyanagar<br>Anand, Gujarat, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon glass-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <span class="contact-label">Business Hours</span>
+                            <p>Mon-Sat: 9AM - 8PM<br>Sun: 10AM - 5PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-icon glass-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon glass-icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-icon glass-icon"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-icon glass-icon"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-container glass-card">
+                <h3><i class="fa-solid fa-paper-plane"></i> Send Enquiry</h3>
+                <form id="enquiryForm" class="enquiry-form">
+                    <div class="form-group">
+                        <label for="enquiryName">Full Name</label>
+                        <input type="text" id="enquiryName" placeholder="Your name" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enquiryEmail">Email</label>
+                            <input type="email" id="enquiryEmail" placeholder="you@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enquiryPhone">Phone</label>
+                            <input type="tel" id="enquiryPhone" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryDest">Interested Destination</label>
+                        <select id="enquiryDest">
+                            <option value="">Select destination...</option>
+                            <option value="bali">Bali, Indonesia</option>
+                            <option value="paris">Paris, France</option>
+                            <option value="maldives">Maldives</option>
+                            <option value="tokyo">Tokyo, Japan</option>
+                            <option value="swiss">Swiss Alps</option>
+                            <option value="santorini">Santorini, Greece</option>
+                            <option value="dubai">Dubai, UAE</option>
+                            <option value="newyork">New York, USA</option>
+                            <option value="rome">Rome, Italy</option>
+                            <option value="capetown">Cape Town, South Africa</option>
+                            <option value="iceland">Iceland</option>
+                            <option value="machupicchu">Machu Picchu, Peru</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryMsg">Message</label>
+                        <textarea id="enquiryMsg" rows="4" placeholder="Tell us about your dream trip..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-glow btn-full">
+                        <i class="fa-solid fa-paper-plane"></i> Send Enquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOOKING MODAL ===== -->
+    <div id="bookingModal" class="modal-overlay">
+        <div class="modal-content glass-panel booking-modal">
+            <button class="modal-close" onclick="closeBooking()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="booking-header">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                <h2>Book Your <span class="gradient-text">Adventure</span></h2>
+            </div>
+            <form id="bookingForm" class="booking-form">
+                <div class="form-group">
+                    <label for="bookDest">Destination</label>
+                    <select id="bookDest" required>
+                        <option value="">Select destination...</option>
+                        <option value="bali">Bali, Indonesia</option>
+                        <option value="paris">Paris, France</option>
+                        <option value="maldives">Maldives</option>
+                        <option value="tokyo">Tokyo, Japan</option>
+                        <option value="swiss">Swiss Alps, Switzerland</option>
+                        <option value="santorini">Santorini, Greece</option>
+                        <option value="dubai">Dubai, UAE</option>
+                        <option value="newyork">New York, USA</option>
+                        <option value="rome">Rome, Italy</option>
+                        <option value="capetown">Cape Town, South Africa</option>
+                        <option value="iceland">Iceland</option>
+                        <option value="machupicchu">Machu Picchu, Peru</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookDate">Travel Date</label>
+                        <input type="date" id="bookDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookTravelers">Travelers</label>
+                        <input type="number" id="bookTravelers" min="1" max="20" value="2" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookPackage">Package</label>
+                    <select id="bookPackage" required>
+                        <option value="budget">Explorer &mdash; $499/person</option>
+                        <option value="premium" selected>Premium &mdash; $999/person</option>
+                        <option value="luxury">Royal &mdash; $2,499/person</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookName">Full Name</label>
+                        <input type="text" id="bookName" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookEmail">Email</label>
+                        <input type="email" id="bookEmail" placeholder="you@mail.com" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary btn-glow btn-full">
+                    <i class="fa-solid fa-check-circle"></i> Confirm Booking
+                </button>
+            </form>
+            <div id="bookingSuccess" class="booking-success hidden">
+                <div class="success-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3>Booking Confirmed!</h3>
+                <p>Your dream trip is booked. Check your email for details.</p>
+                <button class="btn-glass" onclick="closeBooking()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#f0efe6"/>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span>Wander<span class="accent">Vista</span></span>
+                    </a>
+                    <p>Your gateway to extraordinary travel experiences. Explore the world in stunning 3D.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon glass-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon glass-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon glass-icon"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon glass-icon"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Destinations</h4>
+                    <ul>
+                        <li><a href="#">Bali, Indonesia</a></li>
+                        <li><a href="#">Paris, France</a></li>
+                        <li><a href="#">Maldives</a></li>
+                        <li><a href="#">Tokyo, Japan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Quick Contact</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-phone"></i> +91 73593 44083</li>
+                        <li><i class="fa-solid fa-envelope"></i> hello@wandervista.com</li>
+                        <li><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</li>
+                        <li><i class="fa-solid fa-clock"></i> Mon-Sat: 9AM-8PM</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Nana Bazar, V.V.Nagar</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WanderVista by Daksh Makwana &amp; Dharmik Padhara. All rights reserved. Built with <i class="fa-solid fa-heart"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== CONFETTI CANVAS ===== -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

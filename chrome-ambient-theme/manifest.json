@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Ambient Aura New Tab",
+  "version": "1.0.0",
+  "description": "Stunning ambient dark new tab with floating orbs and elegant design.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
