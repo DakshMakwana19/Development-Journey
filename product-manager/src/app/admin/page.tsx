@@ -21,16 +21,16 @@ export default function AdminDashboard() {
   return (
     <div>
       {/* Header */}
-      <div style={{ marginBottom: 32 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-          <h1 style={{ fontSize: 28, fontWeight: 800, letterSpacing: '-0.03em' }}>Dashboard</h1>
+      <div style={{ marginBottom: 24 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
+          <h1 className="page-title">Dashboard</h1>
           <span className="badge badge-success" style={{ fontSize: 11 }}>Live</span>
         </div>
-        <p style={{ fontSize: 14, color: 'var(--text-secondary)' }}>Welcome back, Tushar. Here&apos;s your system overview.</p>
+        <p className="page-subtitle">Welcome back, Tushar. Here&apos;s your system overview.</p>
       </div>
 
       {/* Stats Grid */}
-      <motion.div initial="hidden" animate="visible" variants={stagger} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginBottom: 32 }}>
+      <motion.div initial="hidden" animate="visible" variants={stagger} className="responsive-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12, marginBottom: 24 }}>
         {stats.map((s) => (
           <motion.div key={s.label} variants={fadeUp} className="stat-card">
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 16 }}>
@@ -49,7 +49,7 @@ export default function AdminDashboard() {
       </motion.div>
 
       {/* Charts Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 20, marginBottom: 32 }}>
+      <div className="responsive-grid-2-1" style={{ display: 'grid', gap: 16, marginBottom: 24 }}>
         {/* Scan Activity Chart */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="glass-card" style={{ padding: 24 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
@@ -100,7 +100,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Bottom Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div className="responsive-grid-1-1" style={{ display: 'grid', gap: 16 }}>
         {/* Top Products */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="glass-card" style={{ padding: 24 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>

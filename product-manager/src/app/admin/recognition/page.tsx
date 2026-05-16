@@ -9,12 +9,12 @@ export default function RecognitionPage() {
   return (
     <div>
       <div style={{ marginBottom: 28 }}>
-        <h1 style={{ fontSize: 28, fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 4 }}>AI Recognition History</h1>
-        <p style={{ fontSize: 14, color: 'var(--text-secondary)' }}>All product recognition attempts and results.</p>
+        <h1 className="page-title" style={{ marginBottom: 4 }}>AI Recognition History</h1>
+        <p className="page-subtitle">All product recognition attempts and results.</p>
       </div>
 
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 32 }}>
+      <div className="responsive-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12, marginBottom: 24 }}>
         {[
           { label: 'Total Scans', value: recognitionLogs.length, color: '#6366f1' },
           { label: 'Successful Matches', value: recognitionLogs.filter(r => r.matched).length, color: '#22c55e' },
@@ -29,7 +29,8 @@ export default function RecognitionPage() {
 
       {/* Logs */}
       <div className="glass-card" style={{ overflow: 'hidden' }}>
-        <table className="data-table">
+        <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+        <table className="data-table" style={{ minWidth: 700 }}>
           <thead>
             <tr>
               <th>Time</th>
@@ -78,6 +79,7 @@ export default function RecognitionPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

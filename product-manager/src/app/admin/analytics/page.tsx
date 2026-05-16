@@ -24,13 +24,13 @@ export default function AnalyticsPage() {
   return (
     <div>
       <div style={{ marginBottom: 32 }}>
-        <h1 style={{ fontSize: 28, fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 4 }}>Analytics</h1>
-        <p style={{ fontSize: 14, color: 'var(--text-secondary)' }}>Performance metrics and operational insights.</p>
+        <h1 className="page-title" style={{ marginBottom: 4 }}>Analytics</h1>
+        <p className="page-subtitle">Performance metrics and operational insights.</p>
       </div>
 
       {/* KPI Row */}
       <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-        style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 32 }}>
+        className="responsive-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12, marginBottom: 24 }}>
         {[
           { label: 'Avg. Scans / Day', value: '54', icon: Scan, color: '#6366f1', sub: '↑ 8% vs last week' },
           { label: 'Recognition Accuracy', value: '94.7%', icon: Target, color: '#22c55e', sub: '↑ 2.1% improvement' },
@@ -51,7 +51,7 @@ export default function AnalyticsPage() {
       </motion.div>
 
       {/* Charts */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 32 }}>
+      <div className="responsive-grid-1-1" style={{ display: 'grid', gap: 16, marginBottom: 24 }}>
         {/* Weekly Scans */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="glass-card" style={{ padding: 24 }}>
           <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>Weekly Scan Performance</h3>
@@ -103,7 +103,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Bottom Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div className="responsive-grid-1-1" style={{ display: 'grid', gap: 16 }}>
         {/* Top Categories */}
         <div className="glass-card" style={{ padding: 24 }}>
           <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 20 }}>Product Category Performance</h3>

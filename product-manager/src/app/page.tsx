@@ -11,11 +11,11 @@ export default function LandingPage() {
     <div style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh', overflow: 'hidden' }}>
       {/* NAV */}
       <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(9,9,11,0.8)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--surface-border)' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 16px', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--gradient-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 16, color: 'white' }}>A</div>
-            <span style={{ fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em' }}>AnticBuddy</span>
-            <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 500, marginLeft: 4 }}>by Tushar Makwana</span>
+            <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: '-0.02em' }}>AnticBuddy</span>
+            <span className="brand-subtitle" style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 500, marginLeft: 4 }}>by Tushar Makwana</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <Link href="/login" style={{ padding: '8px 16px', color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>Sign In</Link>
@@ -25,7 +25,7 @@ export default function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '120px 32px 80px' }}>
+      <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '100px 20px 60px' }}>
         <div className="orb orb-1" />
         <div className="orb orb-2" />
         <div className="orb orb-3" />
@@ -71,7 +71,7 @@ export default function LandingPage() {
       </section>
 
       {/* FEATURES */}
-      <section style={{ padding: '100px 32px', position: 'relative' }}>
+      <section style={{ padding: '60px 16px', position: 'relative' }}>
         <div style={{ maxWidth: 1120, margin: '0 auto' }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger} style={{ textAlign: 'center', marginBottom: 64 }}>
             <motion.div variants={fadeUp} style={{ fontSize: 13, fontWeight: 600, color: 'var(--accent-hover)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12 }}>Core Capabilities</motion.div>
@@ -79,7 +79,7 @@ export default function LandingPage() {
             <motion.p variants={fadeUp} style={{ fontSize: 16, color: 'var(--text-secondary)', maxWidth: 500, margin: '0 auto' }}>A complete system designed for manufacturing teams who demand precision and speed.</motion.p>
           </motion.div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={stagger} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={stagger} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
             {[
               { icon: Camera, title: 'AI Camera Recognition', desc: 'Point, scan, and instantly identify any product with 97%+ accuracy using computer vision.', color: '#6366f1' },
               { icon: LayoutDashboard, title: 'Admin Dashboard', desc: 'Full control panel to manage products, track activity, and monitor team performance.', color: '#8b5cf6' },
@@ -101,14 +101,14 @@ export default function LandingPage() {
       </section>
 
       {/* WORKFLOW */}
-      <section style={{ padding: '100px 32px', background: 'var(--bg-secondary)' }}>
+      <section style={{ padding: '60px 16px', background: 'var(--bg-secondary)' }}>
         <div style={{ maxWidth: 1120, margin: '0 auto' }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger} style={{ textAlign: 'center', marginBottom: 64 }}>
             <motion.div variants={fadeUp} style={{ fontSize: 13, fontWeight: 600, color: 'var(--accent-hover)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12 }}>How It Works</motion.div>
             <motion.h2 variants={fadeUp} style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, letterSpacing: '-0.03em' }}>Three Steps. Zero Confusion.</motion.h2>
           </motion.div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={stagger} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32 }}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={stagger} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24 }}>
             {[
               { step: '01', title: 'Scan the Product', desc: 'Worker opens the camera and points it at any bottle or package on the floor.' },
               { step: '02', title: 'AI Identifies It', desc: 'Computer vision matches the product against the database in under 2 seconds.' },
@@ -127,7 +127,7 @@ export default function LandingPage() {
       </section>
 
       {/* DASHBOARD PREVIEW */}
-      <section style={{ padding: '100px 32px', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: '60px 16px', position: 'relative', overflow: 'hidden' }}>
         <div className="orb" style={{ width: 600, height: 600, background: '#6366f1', bottom: '-20%', right: '-10%', filter: 'blur(120px)', opacity: 0.1, position: 'absolute' }} />
         <div style={{ maxWidth: 1120, margin: '0 auto' }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger} style={{ textAlign: 'center', marginBottom: 48 }}>
@@ -135,9 +135,9 @@ export default function LandingPage() {
             <motion.h2 variants={fadeUp} style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, letterSpacing: '-0.03em' }}>Command Center for Managers</motion.h2>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass-card" style={{ padding: 32, overflow: 'hidden' }}>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass-card" style={{ padding: '20px', overflow: 'hidden' }}>
             {/* Mock Dashboard Preview */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 24 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12, marginBottom: 20 }}>
               {[
                 { label: 'Total Products', val: '16', color: '#6366f1' },
                 { label: 'Active Scans', val: '284', color: '#22c55e' },
@@ -161,7 +161,7 @@ export default function LandingPage() {
       </section>
 
       {/* FOUNDER */}
-      <section style={{ padding: '80px 32px', background: 'var(--bg-secondary)' }}>
+      <section style={{ padding: '60px 16px', background: 'var(--bg-secondary)' }}>
         <div style={{ maxWidth: 700, margin: '0 auto', textAlign: 'center' }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.div variants={fadeUp} style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 20 }}>
@@ -182,7 +182,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: '100px 32px', position: 'relative' }}>
+      <section style={{ padding: '60px 16px', position: 'relative' }}>
         <div className="orb" style={{ width: 500, height: 500, background: '#8b5cf6', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', filter: 'blur(150px)', opacity: 0.12, position: 'absolute' }} />
         <div style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>

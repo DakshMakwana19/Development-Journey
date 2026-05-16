@@ -75,12 +75,16 @@ export default function CatalogPage() {
 
               {view === 'grid' ? (
                 <div style={{ padding: 20 }}>
-                  {/* Product Image Placeholder */}
-                  <div className="product-placeholder" style={{ height: 120, marginBottom: 16, borderRadius: 'var(--radius-md)' }}>
-                    <div style={{ textAlign: 'center' }}>
-                      <Package size={28} style={{ marginBottom: 4, opacity: 0.4 }} />
-                      <div style={{ fontSize: 10, opacity: 0.6 }}>{p.bottleType}</div>
-                    </div>
+                  {/* Product Image */}
+                  <div style={{ height: 120, marginBottom: 16, borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--surface-border)', background: 'var(--bg-glass)' }}>
+                    {p.image ? (
+                      <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
+                        <Package size={28} style={{ marginBottom: 4, opacity: 0.4 }} />
+                        <div style={{ fontSize: 10, opacity: 0.6 }}>{p.bottleType}</div>
+                      </div>
+                    )}
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 8 }}>
