@@ -57,12 +57,7 @@ export default function LoginPage() {
             Secure access to the AnticBuddy Product Management System.
           </p>
 
-          {/* Credentials hint */}
-          <div style={{ padding: '12px 16px', background: 'var(--accent-subtle)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 'var(--radius-md)', marginBottom: 24, fontSize: 13 }}>
-            <div style={{ fontWeight: 600, color: 'var(--accent-hover)', marginBottom: 4 }}>🔐 Admin Credentials</div>
-            <div style={{ color: 'var(--text-secondary)' }}>Email: <code style={{ color: 'var(--text-primary)' }}>{ADMIN_EMAIL}</code></div>
-            <div style={{ color: 'var(--text-secondary)' }}>Password: <code style={{ color: 'var(--text-primary)' }}>{ADMIN_PASSWORD}</code></div>
-          </div>
+
 
           <AnimatePresence>
             {error && (
