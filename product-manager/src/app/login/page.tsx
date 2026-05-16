@@ -71,7 +71,7 @@ export default function LoginPage() {
           <form onSubmit={handleLogin}>
             <div className="float-label" style={{ marginBottom: 16 }}>
               <label>Email</label>
-              <input className="input-field" type="email" placeholder="admin@anticbuddy.com" required
+              <input className="input-field" type="email" placeholder="Enter your email" required
                 value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="float-label" style={{ marginBottom: 28 }}>
