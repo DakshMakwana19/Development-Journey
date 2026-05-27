@@ -12,6 +12,7 @@ const navItems = [
   { href: '/admin/catalog', label: 'Catalog', icon: Grid3X3 },
   { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
   { href: '/admin/upload', label: 'Add Product', icon: Upload },
+  { href: '/admin/import', label: 'Bulk Import', icon: Upload },
   { href: '/admin/recognition', label: 'AI Recognition', icon: Camera },
   { href: '/admin/activity', label: 'Activity Logs', icon: Activity },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
@@ -40,13 +41,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     router.push('/login');
   };
 
-  // Auth guard — redirect to login if not admin
-  useEffect(() => {
-    if (!user || user.role !== 'admin') {
-      router.push('/login');
-    }
-  }, [user, router]);
+  const [mounted, setMounted] = useState(false);
 
+  // Auth guard — only check once on mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      if (!user || user.role !== 'admin') {
+        router.replace('/login');
+      }
+    }
+  }, [mounted, user, router]);
+
+  if (!mounted) return null; // Wait for hydration
   if (!user || user.role !== 'admin') return null;
 
 
@@ -109,9 +119,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         <div style={{ height: 1, background: 'var(--surface-border)', margin: '12px 8px' }} />
         <div style={{ padding: '8px 12px', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ width: 32, height: 32, borderRadius: 'var(--radius-full)', background: 'var(--gradient-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 13, color: 'white' }}>T</div>
+          <div style={{ width: 32, height: 32, borderRadius: 'var(--radius-full)', background: 'var(--gradient-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 13, color: 'white' }}>{user?.avatar || 'A'}</div>
           <div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)' }}>Tushar Makwana</div>
+            <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)' }}>{user?.name || 'Admin'}</div>
             <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Admin</div>
           </div>
         </div>
@@ -131,7 +141,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div style={{ width: 26, height: 26, borderRadius: 6, background: 'var(--gradient-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 12, color: 'white' }}>A</div>
           <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: '-0.02em' }}>AnticBuddy</span>
         </div>
-        <div style={{ width: 28, height: 28, borderRadius: 'var(--radius-full)', background: 'var(--gradient-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 11, color: 'white' }}>T</div>
+        <div style={{ width: 28, height: 28, borderRadius: 'var(--radius-full)', background: 'var(--gradient-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 11, color: 'white' }}>{user?.avatar || 'A'}</div>
       </div>
 
       {/* Main Content */}
